@@ -3,7 +3,7 @@ from .rps_entity_meta import RPSEntityMeta
 
 def rps_game(left, right):
     if type(left) is not RPSEntityMeta:
-        raise ValueError
+        raise ValueError()
 
     if type(right) is not RPSEntityMeta:
         raise ValueError()
