@@ -2,9 +2,17 @@ from collections import defaultdict
 
 
 class RPSGraph:
-
     def __init__(self):
         self._graph = defaultdict(set)
+
+    def __getitem__(self, vertex):
+        if vertex not in self._graph:
+            raise KeyError()
+
+        adjacent_vertices = self._graph[vertex]
+        adjacent_vertices = frozenset(adjacent_vertices)
+
+        return adjacent_vertices
 
     def extend(self, vertex, vertices_to, vertices_from):
         if vertex in self._graph:

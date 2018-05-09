@@ -13,7 +13,7 @@ def rps_game(left, right):
 
     left = left.__name__
     right = right.__name__
-    if right in RPSEntityMeta.entity_graph._graph[left]:
+    if right in RPSEntityMeta.entity_graph[left]:
         return 1
 
     return -1
