@@ -1,5 +1,5 @@
-from .rps_entity_meta import RPSEntityMeta
+from .rps_game import RPSGame
 
 
-class RPSEntityRock(metaclass=RPSEntityMeta, great=[], less=[]):
+class RPSEntityRock(metaclass=RPSGame, great=[], less=[]):
     pass

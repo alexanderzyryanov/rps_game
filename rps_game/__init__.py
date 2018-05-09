@@ -4,10 +4,10 @@ from .rps_entity_paper import RPSEntityPaper
 
 from .rps_entity_scissors import RPSEntityScissors
 
-from .rps_entity_meta import RPSEntityMeta
+from .rps_game import RPSGame
 
 
 __all__ = ['RPSEntityRock',
            'RPSEntityPaper',
            'RPSEntityScissors',
-           'RPSEntityMeta']
+           'RPSGame']

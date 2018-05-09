@@ -1,7 +1,7 @@
 from rps_graph import RPSGraph
 
 
-class RPSEntityMeta(type):
+class RPSGame(type):
     _entity_graph = RPSGraph()
 
     @classmethod
@@ -14,14 +14,14 @@ class RPSEntityMeta(type):
 
     def __new__(mcs, *args, **kwargs):
 
-        return super(RPSEntityMeta, mcs).__new__(mcs, *args)
+        return super(RPSGame, mcs).__new__(mcs, *args)
 
     @classmethod
     def rps_game(mcs, left, right):
-        if type(left) is not RPSEntityMeta:
+        if type(left) is not RPSGame:
             raise ValueError()
 
-        if type(right) is not RPSEntityMeta:
+        if type(right) is not RPSGame:
             raise ValueError()
 
         if left is right:
