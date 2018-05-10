@@ -1,9 +1,8 @@
-from collections import defaultdict
 
 
 class RPSGraph:
     def __init__(self):
-        self._graph = defaultdict(set)
+        self._graph = {}
 
     def __getitem__(self, vertex):
         if vertex not in self._graph:
@@ -28,7 +27,7 @@ class RPSGraph:
         if new_edge_vertices ^ graph_vertices:
             raise ValueError()
 
-        self._graph[vertex].update(vertices_to)
+        self._graph[vertex] = vertices_to
 
         for vertex_from in vertices_from:
             self._graph[vertex_from].add(vertex)
