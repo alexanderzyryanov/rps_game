@@ -7,10 +7,9 @@ from rps_game import RPSEntityPaper
 from rps_game import RPSEntityScissors
 
 
-class RPSEntityWell(metaclass=RPSGame,
-                    great=[RPSEntityRock, RPSEntityScissors],
-                    less=[RPSEntityPaper]):
-    pass
+class RPSEntityWell(metaclass=RPSGame):
+    great = (RPSEntityRock, RPSEntityScissors)
+    less = (RPSEntityPaper, )
 
 
 if __name__ == '__main__':

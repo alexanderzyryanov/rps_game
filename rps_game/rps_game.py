@@ -4,15 +4,22 @@ from rps_graph import RPSGraph
 class RPSGame(type):
     _entity_graph = RPSGraph()
 
-    @classmethod
-    def __prepare__(mcs, name, *bases, great, less):
+    def __new__(mcs, *args, **kwargs):
+        name, _bases, cls_dict, *rest = args
+
+        try:
+            less = cls_dict['less']
+        except KeyError:
+            raise TypeError()
+
+        try:
+            great = cls_dict['great']
+        except KeyError:
+            raise KeyError()
+
         great = (e.__name__ for e in great)
         less = (e.__name__ for e in less)
         mcs._entity_graph.extend(name, great, less)
-
-        return {}
-
-    def __new__(mcs, *args, **kwargs):
 
         return super(RPSGame, mcs).__new__(mcs, *args)
 
